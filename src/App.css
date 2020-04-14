@@ -1,0 +1,14 @@
+:root {
+    font-size: calc(0.5em + 1vw);
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 15px;
+}

@@ -1,0 +1,20 @@
+.cards {
+    display: grid;
+    grid-gap: 15px;
+}
+
+.card {
+    width: 100%;
+    justify-self: center;
+    border-bottom: 2px solid red;
+}
+
+.title {
+    font-size: 0.874rem;
+}
+
+@media screen and (min-width: 720px){
+    .cards {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
