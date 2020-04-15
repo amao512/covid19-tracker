@@ -7,7 +7,7 @@ const App = () => {
 
   const [data, setData] = useState({});
   const [countries, setCountries] = useState([]);
-  const [darkMode, setDarkMode] = useState(false); 
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const getData = async () => setData(await fetchData());

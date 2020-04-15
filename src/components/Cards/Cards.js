@@ -39,7 +39,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate }, darkMode })
                             : <CountUp start={0} end={recovered.value} duration={2.5} separator={','} />
                         }
                     </Typography>
-                    <Typography color='textSecondary'>
+                    <Typography color='textSecondary' className={darkMode && s.darkDate}>
                         <p className={darkMode && s.darkDate}>
                             {new Date(lastUpdate).toDateString()}
                         </p>
