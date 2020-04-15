@@ -1,20 +1,82 @@
 .cards {
     display: grid;
     grid-gap: 15px;
+    margin-bottom: 20px;
+}
+
+.darkCards {
+    color: red;
+    transition: all .3s ease;
+}
+
+.darkCards .card {
+    background-color: #383838;
+    color: #fff;
+}
+
+p {
+    margin: 0;
+}
+
+.darkTitle, .darkDate {
+    color: #a5a5a5;
 }
 
 .card {
     width: 100%;
     justify-self: center;
-    border-bottom: 2px solid red;
+}
+
+.confirmed {
+    animation: confirmedLoaded 2s linear;
+    border-bottom: 4px solid rgb(127, 5, 138);
+}
+
+.recovered {
+    animation: recoveredLoaded 2.5s linear;
+    border-bottom: 4px solid green;
+}
+
+.deaths {
+    animation: deathsLoaded 3s linear;
+    border-bottom: 4px solid red;
 }
 
 .title {
     font-size: 0.874rem;
 }
 
+@keyframes confirmedLoaded {
+    0% {
+        border-bottom: 4px solid #d3d3d3;
+    }
+    100% {
+        border-bottom: 4px solid rgb(127, 5, 138);
+    }
+}
+
+@keyframes recoveredLoaded {
+    0% {
+        border-bottom: 4px solid #d3d3d3;
+    }
+    100% {
+        border-bottom: 4px solid green;
+    }
+}
+
+@keyframes deathsLoaded {
+    0% {
+        border-bottom: 4px solid #d3d3d3;
+    }
+    100% {
+        border-bottom: 4px solid red;
+    }
+}
+
+
 @media screen and (min-width: 720px){
     .cards {
         grid-template-columns: 1fr 1fr 1fr;
+        margin-bottom: 50px;
     }
 }

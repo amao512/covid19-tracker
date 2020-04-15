@@ -7,8 +7,27 @@
     box-sizing: inherit;
 }
 
+.App, .darkApp {
+    height: 100vh;
+    transition: all .3s ease;
+}
+
+.darkApp {
+    background-color: #121212;
+}
+
 .container {
     max-width: 1080px;
     margin: 0 auto;
     padding: 15px;
+}
+
+.Logo, .darkModeLogo {
+    text-align: center;
+    font-size: 2.5rem;
+    transition: all .3s ease;
+}
+
+.darkModeLogo {
+    color: #fff;
 }
