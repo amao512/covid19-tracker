@@ -32,9 +32,11 @@ const App = () => {
     <div className={darkMode ? 'darkApp' : 'App'}>
       <div className='container'>
         <h1 className={darkMode ? 'darkModeLogo' : 'Logo'}>COVID-19 Tracker</h1>
+        
         <Modes darkMode={darkMode} setDarkMode={setDarkMode} />
 
         <Cards data={data} darkMode={darkMode} />
+
         <CountryPicker countries={countries} 
                        handleCountry={handleCountry} 
                        darkMode={darkMode} 

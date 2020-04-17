@@ -14,14 +14,6 @@
     color: #fff;
 }
 
-p {
-    margin: 0;
-}
-
-.darkTitle, .darkDate {
-    color: #a5a5a5;
-}
-
 .card {
     width: 100%;
     justify-self: center;
@@ -40,10 +32,6 @@ p {
 .deaths {
     animation: deathsLoaded 3s linear;
     border-bottom: 4px solid red;
-}
-
-.title {
-    font-size: 0.874rem;
 }
 
 @keyframes confirmedLoaded {

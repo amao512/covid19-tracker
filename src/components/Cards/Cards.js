@@ -6,64 +6,47 @@ import Typography from '@material-ui/core/Typography';
 import CountUp from 'react-countup';
 import cn from 'classnames';
 
+
 const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate }, darkMode }) => {
+
+    const styles = {
+        title: {
+            color: darkMode ? '#a5a5a5' : ''
+        },
+        date: {
+            color: darkMode ? '#a5a5a5' : ''
+        }
+    }
+
+    const CardBase = ({ title, type }) => (
+        <CardContent>
+            <Typography color='textSecondary' style={styles.title} gutterBottom>
+                    {title}
+            </Typography>
+            <Typography variant='h5' component='h2' gutterBottom>
+                {!type 
+                    ? '...'
+                    : <CountUp start={0} end={type.value} duration={2.5} separator={','} />
+                }
+            </Typography>
+            <Typography color='textSecondary' style={styles.date}>
+                    {new Date(lastUpdate).toDateString()}
+            </Typography>
+        </CardContent>
+    )
+
     return (
         <div className={cn(s.cards, darkMode && s.darkCards)}>
             <Card className={cn(s.card, s.confirmed)}>
-                <CardContent>
-                    <Typography color='textSecondary' gutterBottom>
-                        <p className={darkMode && s.darkTitle}>Confirmed</p>
-                    </Typography>
-                    <Typography variant='h5' component='h2' gutterBottom>
-                        {!confirmed 
-                            ? <div>...</div>
-                            : <CountUp start={0} end={confirmed.value} duration={2.5} separator={','} />
-                        }
-                    </Typography>
-                    <Typography color='textSecondary'>
-                        <p className={darkMode && s.darkDate}>
-                            {new Date(lastUpdate).toDateString()}
-                        </p>
-                    </Typography>
-                </CardContent>
+                <CardBase title='Confirmed' type={confirmed} />
             </Card>
 
             <Card className={cn(s.card, s.recovered)}>
-                <CardContent>
-                    <Typography color='textSecondary' gutterBottom>
-                        <p className={darkMode && s.darkTitle}>Recovered</p>
-                    </Typography>
-                    <Typography variant='h5' component='h2' gutterBottom>
-                        {!recovered 
-                            ? <div>...</div>
-                            : <CountUp start={0} end={recovered.value} duration={2.5} separator={','} />
-                        }
-                    </Typography>
-                    <Typography color='textSecondary' className={darkMode && s.darkDate}>
-                        <p className={darkMode && s.darkDate}>
-                            {new Date(lastUpdate).toDateString()}
-                        </p>
-                    </Typography>
-                </CardContent>
+                <CardBase title='Recovered' type={recovered} />
             </Card>
 
             <Card className={cn(s.card, s.deaths)}>
-                <CardContent>
-                    <Typography color='textSecondary' gutterBottom>
-                        <p className={darkMode && s.darkTitle}>Deaths</p>
-                    </Typography>
-                    <Typography variant='h5' component='h2' gutterBottom>
-                        {!deaths 
-                            ? <div>...</div>
-                            : <CountUp start={0} end={deaths.value} duration={2.5} separator={','} />
-                        }
-                    </Typography>
-                    <Typography color='textSecondary'>
-                        <p className={darkMode && s.darkDate}>
-                            {new Date(lastUpdate).toDateString()}
-                        </p>
-                    </Typography>
-                </CardContent>
+                 <CardBase title='Deaths' type={deaths} />
             </Card>
         </div>
     )
