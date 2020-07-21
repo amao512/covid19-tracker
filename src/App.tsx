@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
 import { Cards, CountryPicker, Modes } from './components'
-import { fetchData, fetchCountries } from './api/api'
+import { fetchData, fetchCountries, CountriesType } from './api/api'
 
 const App = () => {
 
   const [data, setData] = useState<any>({});
-  const [countries, setCountries] = useState<Array<any>>([])
+  const [countries, setCountries] = useState<Array<CountriesType>>([])
   const [darkMode, setDarkMode] = useState<boolean>(false)
 
   useEffect(() => {
