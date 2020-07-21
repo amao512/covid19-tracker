@@ -1,10 +1,15 @@
-import React from 'react';
-import s from './modes.module.css';
+import React, { FC } from 'react'
+import s from './modes.module.css'
 
-const Modes = ({ darkMode, setDarkMode }) => {
+type PropsType = {
+    darkMode: boolean
+    setDarkMode: (mode: boolean) => void
+}
+
+const Modes: FC<PropsType> = ({ darkMode, setDarkMode }) => {
 
     const changeMode = () => {
-        localStorage.setItem('mode', JSON.stringify(!darkMode));
+        // localStorage.setItem('mode', JSON.stringify(!darkMode));
         setDarkMode(!darkMode)
     }
 
@@ -17,4 +22,4 @@ const Modes = ({ darkMode, setDarkMode }) => {
     )
 }
 
-export default Modes;
+export default Modes

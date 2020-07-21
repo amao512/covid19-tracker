@@ -1,9 +1,16 @@
-import React from 'react';
-import s from './countryPicker.module.css';
-import { FormControl } from '@material-ui/core';
-import cn from 'classnames';
+import React, { FC } from 'react'
+import s from './countryPicker.module.css'
+import { FormControl } from '@material-ui/core'
+import cn from 'classnames'
+import { CountriesType } from '../../api/api'
 
-const CountryPicker = ({ countries, handleCountry, darkMode }) => {
+type PropsType = {
+    countries: Array<CountriesType>
+    handleCountry: (country: string) => void
+    darkMode: boolean
+}
+
+const CountryPicker: FC<PropsType> = ({ countries, handleCountry, darkMode }) => {
     return (
         <FormControl className={!darkMode ? s.countryPicker : s.darkPicker}>
             <select defaultValue='' 
@@ -19,4 +26,4 @@ const CountryPicker = ({ countries, handleCountry, darkMode }) => {
     )
 }
 
-export default CountryPicker;
+export default CountryPicker

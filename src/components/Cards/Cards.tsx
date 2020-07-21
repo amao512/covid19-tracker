@@ -1,13 +1,18 @@
-import React from 'react';
-import s from './cards.module.css';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import CountUp from 'react-countup';
-import cn from 'classnames';
+import React, { FC } from 'react'
+import s from './cards.module.css'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
+import CountUp from 'react-countup'
+import cn from 'classnames'
+import { DataType } from '../../api/api'
 
+type PropsType = {
+    data: DataType
+    darkMode: boolean
+}
 
-const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate }, darkMode }) => {
+const Cards: FC<PropsType> = ({ data: { confirmed, recovered, deaths, lastUpdate }, darkMode }) => {
 
     const styles = {
         title: {
@@ -18,7 +23,15 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate }, darkMode })
         }
     }
 
-    const CardBase = ({ title, type }) => (
+    type CardBaseType = {
+        title: string
+        type: { 
+            detail: string
+            value: number 
+        }
+    }
+
+    const CardBase = ({ title, type }: CardBaseType) => (
         <CardContent>
             <Typography color='textSecondary' style={styles.title} gutterBottom>
                     {title}
@@ -52,4 +65,4 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate }, darkMode })
     )
 }
 
-export default Cards;
+export default Cards
